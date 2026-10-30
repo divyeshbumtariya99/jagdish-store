@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAGDISH PROVISION STORE - જગદીશ પ્રોવિઝન સ્ટોર</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1b4332;
+      --primary-dark: #081c15;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --whatsapp: #25d366;
+      --whatsapp-dark: #128c7e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Hind Vadodara', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 90px;
+    }
+
+    .top-strip {
+      background: linear-gradient(90deg, #b45309, #d97706);
+      color: #fff;
+      text-align: center;
+      padding: 8px 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #ffffff;
+      padding: 30px 16px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+    .store-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      color: #fde68a;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      margin-bottom: 4px;
+    }
+    header h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 8px;
+    }
+    header p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      gap: 10px;
+    }
+    .info-item span {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+    .info-item p {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .user-details {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 24px;
+    }
+    .user-details h3 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 600px) {
+      .form-grid { grid-template-columns: 1fr; }
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+      font-family: inherit;
+    }
+    .form-group input:focus {
+      border-color: var(--primary);
+    }
+
+    .category-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .category-header {
+      background: #f1f5f9;
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .item-list {
+      padding: 12px 16px;
+    }
+    .item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dashed #edf2f7;
+      gap: 12px;
+    }
+    .item-row:last-child {
+      border-bottom: none;
+    }
+    .item-name {
+      font-weight: 600;
+      font-size: 0.98rem;
+      flex: 1;
+    }
+    .qty-input {
+      width: 140px;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      outline: none;
+      font-family: inherit;
+      background: #f8fafc;
+    }
+    .qty-input:focus {
+      border-color: var(--primary);
+      background: #fff;
+    }
+
+    .others-section {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    .others-section input {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: center;
+      z-index: 100;
+    }
+    .order-btn {
+      width: 100%;
+      max-width: 600px;
+      background: var(--whatsapp);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+      transition: background 0.2s;
+    }
+    .order-btn:hover {
+      background: var(--whatsapp-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-strip">
+    🚚 ₹500 થી વધુના ઓર્ડર પર ફ્રી હોમ ડિલિવરી!
+  </div>
+
+  <header>
+    <span class="store-badge">શુદ્ધતા અને વિશ્વાસનું સરનામું</span>
+    <h1>JAGDISH PROVISION STORE</h1>
+    <h2>જગદીશ પ્રોવિઝન સ્ટોર</h2>
+    <p>કરિયાણું અને જનરલ સામાન ઘરબેઠા ઓર્ડર કરો</p>
+  </header>
+
+  <div class="container">
+    <div class="info-card">
+      <div class="info-item">
+        <span>✨</span>
+        <p>૧૦૦% શુદ્ધ માલ</p>
+      </div>
+      <div class="info-item">
+        <span>⚖️</span>
+        <p>વ્યાજબી ભાવ</p>
+      </div>
+      <div class="info-item">
+        <span>📲</span>
+        <p>વ્હોટ્સએપ ઓર્ડર</p>
+      </div>
+    </div>
+
+    <div class="user-details">
+      <h3>તમારી વિગતો (ડિલિવરી માટે)</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>ગ્રાહકનું નામ:</label>
+          <input type="text" id="custName" placeholder="તમારું પૂરું નામ">
+        </div>
+        <div class="form-group">
+          <label>સરનામું / ઘર નંબર / સોસાયટી:</label>
+          <input type="text" id="custAddress" placeholder="શેરી/ગામ/વિસ્તાર">
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 1 -->
+    <div class="category-card">
+      <div class="category-header">🌾 અનાજ અને કઠોળ</div>
+      <div class="item-list">
+        <div class="item-row">
+          <span class="item-name">ઘઉં (ટુકડા / લોકવન)</span>
+          <input type="text" class="qty-input" data-item="ઘઉં" placeholder="દા.ત. 10 kg">
+        </div>
+        <div class="item-row">
+          <span class="item-name">ચોખા (બાસમતી / જીરાસાર)</span>
+          <input type="text" class="qty-input" data-item="ચોખા" placeholder="દા.ત. 5 kg">
+        </div>
+        <div class="item-row">
+          <span class="item-name">તુવેર દાળ (દેશી)</span>
+          <input type="text" class="qty-input" data-item="તુવેર દાળ" placeholder="દા.ત. 1 kg">
+        </div>
+        <div class="item-row">
+          <span class="item-name">મગ / મગની દાળ</span>
+          <input type="text" class="qty-input" data-item="મગ/મગ દાળ" placeholder="દા.ત. 500 gm">
+        </div>
+        <div class="item-row">
+          <span class="item-name">ચણા / ચણા દાળ</span>
+          <input type="text" class="qty-input" data-item="ચણા/ચણા દાળ" placeholder="દા.ત. 1 kg">
+        </div>
+        <div class="item-row">
+          <span class="item-name">અડદ દાળ</span>
+          <input type="text" class="qty-input" data-item="અડદ દાળ" placeholder="દા.ત. 500 gm">
+        </div>
+        <div class="others-section">
+          <input type="text" id="others1" placeholder="➕ અન્ય અનાજ/કઠોળ (નામ અને વજન)">
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 2 -->
+    <div class="category-card">
+      <div class="category-header">🧂 તેલ, ઘી અને મસાલા</div>
+      <div class="item-list">
+        <div class="item-row">
+          <span class="item-name">સીંગતેલ / કપાસિયા તેલ</span>
+          <input type="text" class="qty-input" data-item="તેલ" placeholder="દા.ત. 1 ડબ્બો / 5L">
+        </div>
+        <div class="item-row">
+          <span class="item-name">શુદ્ધ દેશી ઘી</span>
+          <input type="text" class="qty-input" data-item="દેશી ઘી" placeholder="દા.ત. 1 kg">
+        </div>
+        <div class="item-row">
+          <span class="item-name">મરચું પાવડર (કાશ્મીરી/રેશમપટ્ટો)</span>
+          <input type="text" class="qty-input" data-item="મરચું પાવડર" placeholder="દા.ત. 500 gm">
+        </div>
+        <div class="item-row">
+          <span class="item-name">હળદર પાવડર</span>
+          <input type="text" class="qty-input" data-item="હળદર" placeholder="દા.ત. 250 gm">
+        </div>
+        <div class="item-row">
+          <span class="item-name">ધાણાજીરું પાવડર</span>
+          <input type="text" class="qty-input" data-item="ધાણાજીરું" placeholder="દા.ત. 500 gm">
+        </div>
+        <div class="item-row">
+          <span class="item-name">રાઈ / જીરું / હિંગ</span>
+          <input type="text" class="qty-input" data-item="રાઈ/જીરું/હિંગ" placeholder="દા.ત. 100 gm">
+        </div>
+        <div class="others-section">
+          <input type="text" id="others2" placeholder="➕ અન્ય મસાલા/તેલ (નામ અને વજન)">
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 3 -->
+    <div class="category-card">
+      <div class="category-header">☕ ડેઇલી યુઝ, ગોળ-ખાંડ અને ડ્રાયફ્રૂટ્સ</div>
+      <div class="item-list">
+        <div class="item-row">
+          <span class="item-name">ખાંડ / દેશી ગોળ</span>
+          <input type="text" class="qty-input" data-item="ખાંડ/ગોળ" placeholder="દા.ત. 5 kg">
+        </div>
+        <div class="item-row">
+          <span class="item-name">ચા પત્તી / કોફી</span>
+          <input type="text" class="qty-input" data-item="ચા/કોફી" placeholder="દા.ત. 500 gm">
+        </div>
+        <div class="item-row">
+          <span class="item-name">પૌંઆ / સોજી / રવો / મેંદો</span>
+          <input type="text" class="qty-input" data-item="પૌંઆ/સોજી/મેંદો" placeholder="દા.ત. 1 kg">
+        </div>
+        <div class="item-row">
+          <span class="item-name">કાજુ / બદામ / કિસમિસ</span>
+          <input type="text" class="qty-input" data-item="ડ્રાયફ્રૂટ્સ" placeholder="દા.ત. 250 gm">
+        </div>
+        <div class="others-section">
+          <input type="text" id="others3" placeholder="➕ અન્ય ડેઇલી કરિયાણું (નામ અને વજન)">
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 4 -->
+    <div class="category-card">
+      <div class="category-header">🧼 ઘર સફાઈ અને પર્સનલ કેર</div>
+      <div class="item-list">
+        <div class="item-row">
+          <span class="item-name">કપડાંનો સાબુ / વોશિંગ પાવડર</span>
+          <input type="text" class="qty-input" data-item="વોશિંગ પાવડર" placeholder="દા.ત. 2 kg">
+        </div>
+        <div class="item-row">
+          <span class="item-name">વાસણ ઘસવાનો સાબુ / લિક્વિડ</span>
+          <input type="text" class="qty-input" data-item="ડિશવોશ" placeholder="દા.ત. 2 નંગ">
+        </div>
+        <div class="item-row">
+          <span class="item-name">નહાવાનો સાબુ / શેમ્પૂ</span>
+          <input type="text" class="qty-input" data-item="સાબુ/શેમ્પૂ" placeholder="દા.ત. 3 નંગ">
+        </div>
+        <div class="item-row">
+          <span class="item-name">ફ્લોર ક્લીનર / ફિનાઈલ</span>
+          <input type="text" class="qty-input" data-item="ફિનાઈલ" placeholder="દા.ત. 1 બોટલ">
+        </div>
+        <div class="others-section">
+          <input type="text" id="others4" placeholder="➕ અન્ય સફાઈની વસ્તુઓ">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sticky-bar">
+    <button class="order-btn" onclick="sendWhatsAppOrder()">
+      📲 વ્હોટ્સએપ પર ઓર્ડર મોકલો
+    </button>
+  </div>
+
+  <script>
+    function sendWhatsAppOrder() {
+      const name = document.getElementById('custName').value.trim();
+      const address = document.getElementById('custAddress').value.trim();
+      
+      let itemsList = [];
+      const inputs = document.querySelectorAll('.qty-input');
+      inputs.forEach(input => {
+        const val = input.value.trim();
+        if (val) {
+          itemsList.push(`• ${input.dataset.item}: ${val}`);
+        }
+      });
+
+      for (let i = 1; i <= 4; i++) {
+        const otherVal = document.getElementById(`others${i}`).value.trim();
+        if (otherVal) {
+          itemsList.push(`• અન્ય: ${otherVal}`);
+        }
+      }
+
+      if (itemsList.length === 0) {
+        alert('કૃપા કરીને લિસ્ટમાં ઓછામાં ઓછી એક વસ્તુનું વજન કે જથ્થો લખો.');
+        return;
+      }
+
+      let message = `🛒 *નવો ઓર્ડર - JAGDISH PROVISION STORE*\n\n`;
+      if (name) message += `👤 *ગ્રાહકનું નામ:* ${name}\n`;
+      if (address) message += `📍 *સરનામું:* ${address}\n`;
+      message += `------------------------\n*ઓર્ડર કરેલી વસ્તુઓ:*\n`;
+      message += itemsList.join('\n');
+      message += `\n------------------------\n🚚 *હોમ ડિલિવરી ઓર્ડર*`;
+
+      const storeNumber = "919427245957";
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=${storeNumber}&text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
